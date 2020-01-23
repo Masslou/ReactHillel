@@ -5,7 +5,7 @@ import ClientsList from '../ClientsList';
 //STYLES
 import '../styles/table.scss'
 //DATA
-import {data} from "../data";
+import data from "../data";
 
 class Table extends Component {
 
