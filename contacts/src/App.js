@@ -1,7 +1,7 @@
 //CORE
 import React, {Component} from 'react';
 //COMPONENTS
-import Table from "./components/Main";
+import Table from "./components/Table";
 
 class App extends Component {
     render() {

@@ -4,8 +4,14 @@ import React, {Component} from 'react';
 import ClientsList from '../ClientsList';
 //STYLES
 import '../styles/main.scss'
+//DATA
+import {data} from "../data";
 
 class Table extends Component {
+
+    state = {
+        contactsList: data
+    };
 
     render() {
         return (
@@ -16,7 +22,7 @@ class Table extends Component {
                     <div className="flex-row" role="columnheader">SURNAME</div>
                     <div className="flex-row" role="columnheader">PHONE</div>
                 </div>
-                <ClientsList/>
+                <ClientsList contactsList={this.state.contactsList}/>
             </div>
         );
     }

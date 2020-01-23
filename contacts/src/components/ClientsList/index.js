@@ -1,22 +1,16 @@
 //CORE
 import React, {Component} from 'react';
-//DATA
-import {data} from '../data';
 //COMPONENTS
 import ClientField from "../ClientField";
 
 
 class ClientsList extends Component {
 
-    state = {
-        contactsList: data
-    };
-
     render() {
         return (
             <div>
                 {
-                    this.state.contactsList.map((item) => {
+                    this.props.contactsList.map((item) => {
                         return <ClientField key={item.id} item={item}/>
                     })
                 }
