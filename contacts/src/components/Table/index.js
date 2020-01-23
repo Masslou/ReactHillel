@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 //COMPONENTS
 import ClientsList from '../ClientsList';
 //STYLES
-import '../styles/main.scss'
+import '../styles/table.scss'
 //DATA
 import {data} from "../data";
 
