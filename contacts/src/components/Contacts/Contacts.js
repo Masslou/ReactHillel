@@ -66,11 +66,8 @@ class Contacts extends Component {
         this.setState({
             showNewUserForm: true,
             selectedContact: {
-                id: contact.id,
-                name: contact.name,
-                surname: contact.surname,
-                phone: contact.phone,
-                age: contact.age
+                ...this.state.selectedContact,
+                    ...contact
             }
         })
     };
