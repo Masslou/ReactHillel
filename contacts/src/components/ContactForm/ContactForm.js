@@ -37,7 +37,7 @@ class ContactForm extends Component {
                         name='phone'
                         onChange={this.onFormChange}
                     />
-                    <input type="submit" value={contact.id ? "Submit" : "Save"}/>
+                    <input type="submit" className="form-submit-btn" value={contact.id ? "Submit" : "Save"}/>
                 </form>
             </>
         )

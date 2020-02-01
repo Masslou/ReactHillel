@@ -153,4 +153,10 @@ div {
   outline: none;
 }
 
+.form-submit-btn {
+  background-color: #36c84d;
+  color: #FFF;
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=contacts.css.map */

@@ -18,17 +18,28 @@ class Contacts extends Component {
     };
 
 
-    onFormSubmit = (newContact) => {
+    onSave = (contact) => {
+        if (contact.id) {
+            this.updateContact(contact);
+        } else {
+            this.createContact(contact);
+        }
+    }
+
+    createContact(contact) {
+        contact.id = Date.now();
         this.setState({
-            contactsList: [...this.state.contactsList,
-                {
-                    id: Date.now(),
-                    ...newContact
-                }
-            ],
+            contactsList: [...this.state.contactsList, contact],
+            selectedContact: contact
+        });
+    }
+
+    updateContact(contact) {
+        this.setState({
+            contactsList: this.state.contactsList.map(el => el.id === contact.id ? contact : el),
             selectedContact: this.getEmptyContactData()
-        })
-    };
+        });
+    }
 
     onFormChange = (changes) => {
         this.setState({
@@ -67,11 +78,10 @@ class Contacts extends Component {
             showNewUserForm: true,
             selectedContact: {
                 ...this.state.selectedContact,
-                    ...contact
+                ...contact
             }
         })
     };
-
 
     render() {
         return (
@@ -102,7 +112,7 @@ class Contacts extends Component {
                     this.state.showNewUserForm ?
                         <ContactForm
                             contact={this.state.selectedContact}
-                            onSubmit={this.onFormSubmit}
+                            onSubmit={this.onSave}
                             onChange={this.onFormChange}/> : null
                 }
             </>
