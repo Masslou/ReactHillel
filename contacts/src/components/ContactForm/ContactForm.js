@@ -16,8 +16,8 @@ class ContactForm extends Component {
 
     render() {
         const {contact} = this.props;
-        return (<>
-                {console.log(contact)}
+        return (
+            <>
                 <form onSubmit={this.onFormSubmit}>
                     <input
                         type="text"

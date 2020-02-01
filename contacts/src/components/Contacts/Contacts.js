@@ -24,7 +24,7 @@ class Contacts extends Component {
         } else {
             this.createContact(contact);
         }
-    }
+    };
 
     createContact(contact) {
         contact.id = Date.now();
