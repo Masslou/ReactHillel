@@ -12,7 +12,7 @@ import data from "../data";
 class Contacts extends Component {
 
     state = {
-        newContact: this.getEmptyContactData(),
+        selectedContact: this.getEmptyContactData(),
         contactsList: data,
         showNewUserForm: false
     };
@@ -26,14 +26,14 @@ class Contacts extends Component {
                     ...newContact
                 }
             ],
-            newContact: this.getEmptyContactData()
+            selectedContact: this.getEmptyContactData()
         })
     };
 
     onFormChange = (changes) => {
         this.setState({
-            newContact: {
-                ...this.state.newContact,
+            selectedContact: {
+                ...this.state.selectedContact,
                 ...changes
             }
         })
@@ -62,7 +62,14 @@ class Contacts extends Component {
         });
     };
 
-    editContact = (id) => {
+    onContactSelect = (id)=>{
+        const selectedContactOnEdit = this.state.contactsList.filter((item)=>{
+            return item.id === id;
+        });
+        this.setState({
+            selectedContact: selectedContactOnEdit,
+            showNewUserForm: true
+        });
 
     };
 
@@ -82,7 +89,7 @@ class Contacts extends Component {
                         <ContactListItems
                             contactsList={this.state.contactsList}
                             onDelete={this.deleteContact}
-                            onEdit={this.editContact}
+                            onEdit={this.onContactSelect}
                         />
 
                     </div>
@@ -94,8 +101,8 @@ class Contacts extends Component {
                 {
                     this.state.showNewUserForm ?
                         <ContactForm
-                            key={this.state.newContact.id}
-                            contact={this.state.newContact}
+                            key={this.state.selectedContact.id}
+                            contact={this.state.selectedContact}
                             onSubmit={this.onFormSubmit}
                             onChange={this.onFormChange}/> : null
                 }

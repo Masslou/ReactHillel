@@ -8,7 +8,7 @@ import ContactListItem from "../ContactListItem/ContactListItem";
 class ContactListItems extends Component {
 
     render() {
-        const {contactsList, onDelete} = this.props;
+        const {contactsList, onDelete, onEdit} = this.props;
         return (
             <>
                 {
@@ -17,6 +17,7 @@ class ContactListItems extends Component {
                             key={item.id}
                             item={item}
                             onDelete={onDelete}
+                            onEdit={onEdit}
                         />
                     })
                 }
@@ -27,7 +28,8 @@ class ContactListItems extends Component {
 
 ContactListItems.propTypes = {
     contactsList: propTypes.contactItems.isRequired,
-    onDelete: propTypes.func.isRequired
+    onDelete: propTypes.func.isRequired,
+    onEdit: propTypes.func.isRequired
 };
 
 
