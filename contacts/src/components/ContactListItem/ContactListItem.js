@@ -31,7 +31,7 @@ class ContactListItem extends Component {
 ContactListItem.propTypes = {
     item: propTypes.contactItem.isRequired,
     onDelete: propTypes.func.isRequired,
-    onEdit: propTypes.func.isRequired
+    // onEdit: propTypes.func.isRequired
 };
 
 export default ContactListItem;
