@@ -4,26 +4,23 @@ div {
 
 .table-container {
   display: block;
-  margin: 2em auto;
+  margin: 1em 1em;
   width: 90%;
   max-width: 600px;
-}
-
-.flag-icon {
-  margin-right: 0.1em;
+  border: 1px solid black;
 }
 
 .flex-table {
   display: flex;
   flex-flow: row wrap;
-  border-left: solid 1px #d9d9d9;
+  border-left: solid 1px black;
   transition: 0.5s;
 }
 .flex-table:first-of-type {
-  border-top: solid 1px #1565C0;
+  border-top: solid 1px black;
 }
 .flex-table:first-of-type .flex-row {
-  background: #1976D2;
+  background-image: linear-gradient(to top right, #e2e2e2, #06aff0);
 }
 .flex-table.row:nth-child(odd) .flex-row {
   background: #f4f2f1;
@@ -34,11 +31,16 @@ div {
 }
 
 .flex-row {
-  width: calc(100% / 4);
+  width: calc(100% / 5);
   text-align: center;
   padding: 0.5em 0.5em;
-  border-right: solid 1px #d9d9d9;
-  border-bottom: solid 1px #d9d9d9;
+  border-right: solid 1px black;
+  border-bottom: solid 1px black;
+}
+.flex-row.title {
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .rowspan {
@@ -63,7 +65,7 @@ div {
   border-bottom: solid 1px #d9d9d9;
 }
 .column .flex-row:hover {
-  background: #f5cb8a;
+  background: #f5df88;
   transition: 500ms;
 }
 
@@ -90,7 +92,7 @@ div {
     border-bottom: 0;
   }
   .flex-table .flex-row:last-of-type {
-    border-bottom: solid 1px #d9d9d9;
+    border-bottom: solid 1px black;
   }
 
   .header .flex-row {
@@ -116,5 +118,28 @@ div {
     width: 100%;
   }
 }
+.contactList-item-DelBtn {
+  font-size: 8px;
+  margin: 4px 2px;
+  background-image: linear-gradient(to top right, red, #f06d06);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-/*# sourceMappingURL=table.css.mapp */
+.contactList-item-EditBtn {
+  font-size: 8px;
+  margin: 5px;
+  background-color: lightgreen;
+  color: black;
+  border: 1px solid;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.id {
+  overflow: hidden;
+  padding-right: 4px;
+}
+
+/*# sourceMappingURL=contacts.css.map */

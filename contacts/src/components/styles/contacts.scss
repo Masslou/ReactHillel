@@ -1,5 +1,5 @@
-$table-header: #1976D2;
-$table-header-border: #1565C0;
+$table-header: green;
+$table-header-border: black;
 $table-border: #d9d9d9;
 $row-bg: #f4f2f1;
 
@@ -9,29 +9,30 @@ div {
 
 .table-container {
   display: block;
-  margin: 2em auto;
+  margin: 1em 1em;
   width: 90%;
   max-width: 600px;
-}
-
-.flag-icon {
-  margin-right: 0.1em;
+  border: 1px solid black;
 }
 
 .flex-table {
   display: flex;
   flex-flow: row wrap;
-  border-left: solid 1px $table-border;
+  border-left: solid 1px black;
   transition: 0.5s;
+
   &:first-of-type {
     border-top: solid 1px $table-header-border;
   }
+
   &:first-of-type .flex-row {
-    background: $table-header;
+    background-image: linear-gradient(to top right, #e2e2e2, #06aff0);
   }
+
   &.row:nth-child(odd) .flex-row {
     background: $row-bg;
   }
+
   &:hover {
     background: #F5F5F5;
     transition: 500ms;
@@ -39,12 +40,19 @@ div {
 }
 
 .flex-row {
-  width: calc(100% / 4);
+  width: calc(100% / 5);
   text-align: center;
   padding: 0.5em 0.5em;
-  border-right: solid 1px $table-border;
-  border-bottom: solid 1px $table-border;
+  border-right: solid 1px black;
+  border-bottom: solid 1px black;
+
+  &.title {
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+  }
 }
+
 
 .rowspan {
   display: flex;
@@ -58,6 +66,7 @@ div {
   flex-flow: column wrap;
   width: 75%;
   padding: 0;
+
   .flex-row {
     display: flex;
     flex-flow: row wrap;
@@ -65,8 +74,9 @@ div {
     padding: 0;
     border: 0;
     border-bottom: solid 1px $table-border;
+
     &:hover {
-      background: #f5cb8a;
+      background: #f5df88;
       transition: 500ms;
     }
   }
@@ -103,13 +113,15 @@ div {
     .flex-row {
       border-bottom: 0;
     }
+
     .flex-row:last-of-type {
-      border-bottom: solid 1px $table-border;
+      border-bottom: solid 1px black;
     }
   }
 
   .header {
     .flex-row {
+
       border-bottom: solid 1px;
     }
   }
@@ -125,6 +137,7 @@ div {
 
   .column {
     width: 100%;
+
     .flex-row {
       border-bottom: solid 1px $table-border;
     }
@@ -133,4 +146,28 @@ div {
   .flex-cell {
     width: 100%; //1px = border right
   }
+}
+
+.contactList-item-DelBtn {
+  font-size: 8px;
+  margin: 4px 2px;
+  background-image: linear-gradient(to top right, red, #f06d06);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.contactList-item-EditBtn {
+  font-size: 8px;
+  margin: 5px;
+  background-color: lightgreen;
+  color: black;
+  border: 1px solid;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.id {
+  overflow: hidden;
+  padding-right: 4px;
 }

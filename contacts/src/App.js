@@ -1,12 +1,12 @@
 //CORE
 import React, {Component} from 'react';
 //COMPONENTS
-import Table from "./components/Table";
+import Contacts from "./components/Contacts/Contacts";
 
 class App extends Component {
     render() {
         return (
-            <Table/>
+            <Contacts/>
         );
     }
 }
