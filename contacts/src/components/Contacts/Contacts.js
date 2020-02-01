@@ -14,7 +14,7 @@ class Contacts extends Component {
     state = {
         selectedContact: this.getEmptyContactData(),
         contactsList: data,
-        showNewUserForm: false
+        showContactForm: false
     };
 
 
@@ -30,13 +30,14 @@ class Contacts extends Component {
         contact.id = Date.now();
         this.setState({
             contactsList: [...this.state.contactsList, contact],
-            selectedContact: contact
+            selectedContact: this.getEmptyContactData()
         });
     }
 
     updateContact(contact) {
         this.setState({
-            contactsList: this.state.contactsList.map(el => el.id === contact.id ? contact : el),
+            contactsList: this.state.contactsList
+                .map(el => el.id === contact.id ? contact : el),
             selectedContact: this.getEmptyContactData()
         });
     }
@@ -59,9 +60,10 @@ class Contacts extends Component {
     }
 
     onAddContact = () => {
-        this.setState({
-            showNewUserForm: !this.state.showNewUserForm
-        })
+            this.setState({
+                selectedContact: this.getEmptyContactData(),
+                showContactForm: !this.state.showContactForm
+            })
     };
 
     deleteContact = (id) => {
@@ -75,7 +77,7 @@ class Contacts extends Component {
 
     editContact = (contact) => {
         this.setState({
-            showNewUserForm: true,
+            showContactForm: true,
             selectedContact: {
                 ...this.state.selectedContact,
                 ...contact
@@ -95,24 +97,28 @@ class Contacts extends Component {
                             <div className="flex-row title">PHONE</div>
                             <div className="flex-row title">OPTIONS</div>
                         </div>
-
                         <ContactListItems
                             contactsList={this.state.contactsList}
                             onDelete={this.deleteContact}
                             onEdit={this.editContact}
                         />
 
+
                     </div>
 
                     <button className='add-user-btn'
-                            onClick={this.onAddContact}>{!this.state.showNewUserForm ? 'Add contact' : 'Hide form'}</button>
+                            onClick={this.onAddContact}>{!this.state.showContactForm ? 'Add contact' : 'Hide form'}</button>
+                </div>
+
+                <div className="right-menu-wrapper">
+
                 </div>
 
                 {
-                    this.state.showNewUserForm ?
+                    this.state.showContactForm ?
                         <ContactForm
                             contact={this.state.selectedContact}
-                            onSubmit={this.onSave}
+                            onSave={this.onSave}
                             onChange={this.onFormChange}/> : null
                 }
             </>
