@@ -8,10 +8,12 @@ import ContactListItem from "../ContactListItem/ContactListItem";
 class ContactListItems extends Component {
 
     render() {
+
         const {contactsList, onDelete, onEdit} = this.props;
         return (
             <>
                 {
+
                     contactsList.map((item) => {
                         return <ContactListItem
                             key={item.id}

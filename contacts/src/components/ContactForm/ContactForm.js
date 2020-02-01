@@ -11,7 +11,7 @@ class ContactForm extends Component {
 
     onFormSubmit = (e) => {
         e.preventDefault();
-        this.props.onSave(this.props.contact)
+        this.props.onSubmit(this.props.contact)
     };
 
     render() {
@@ -47,7 +47,8 @@ class ContactForm extends Component {
 
 ContactForm.propTypes = {
     contact: propTypes.contactItem.isRequired,
-    onSave: propTypes.func.isRequired
+    onSubmit: propTypes.func.isRequired,
+    onChange: propTypes.func.isRequired
 };
 
 export default ContactForm;

@@ -18,7 +18,7 @@ class Contacts extends Component {
     };
 
 
-    onSave = (contact) => {
+    onSubmit = (contact) => {
         if (contact.id) {
             this.updateContact(contact);
         } else {
@@ -37,7 +37,7 @@ class Contacts extends Component {
     updateContact(contact) {
         this.setState({
             contactsList: this.state.contactsList
-                .map(el => el.id === contact.id ? contact : el),
+                .map(item => item.id === contact.id ? contact : item),
             selectedContact: this.getEmptyContactData()
         });
     }
@@ -116,7 +116,7 @@ class Contacts extends Component {
                         this.state.showContactForm ?
                             <ContactForm
                                 contact={this.state.selectedContact}
-                                onSave={this.onSave}
+                                onSubmit={this.onSubmit}
                                 onChange={this.onFormChange}/> : null
                     }
                 </div>
