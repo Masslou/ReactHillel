@@ -60,10 +60,10 @@ class Contacts extends Component {
     }
 
     onAddContact = () => {
-            this.setState({
-                selectedContact: this.getEmptyContactData(),
-                showContactForm: !this.state.showContactForm
-            })
+        this.setState({
+            selectedContact: this.getEmptyContactData(),
+            showContactForm: !this.state.showContactForm
+        })
     };
 
     deleteContact = (id) => {
@@ -88,7 +88,8 @@ class Contacts extends Component {
     render() {
         return (
             <>
-                <div className="left-menu-wrapper">
+                <div className="main-content-wrapper">
+                <div className="left-form-wrapper">
                     <div className="table-container">
                         <div className="flex-table header">
                             <div className="flex-row title">ID</div>
@@ -110,17 +111,17 @@ class Contacts extends Component {
                             onClick={this.onAddContact}>{!this.state.showContactForm ? 'Add contact' : 'Hide form'}</button>
                 </div>
 
-                <div className="right-menu-wrapper">
-
+                <div className="right-form-wrapper">
+                    {
+                        this.state.showContactForm ?
+                            <ContactForm
+                                contact={this.state.selectedContact}
+                                onSave={this.onSave}
+                                onChange={this.onFormChange}/> : null
+                    }
+                </div>
                 </div>
 
-                {
-                    this.state.showContactForm ?
-                        <ContactForm
-                            contact={this.state.selectedContact}
-                            onSave={this.onSave}
-                            onChange={this.onFormChange}/> : null
-                }
             </>
         );
     }

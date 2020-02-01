@@ -159,4 +159,17 @@ div {
   font-weight: bold;
 }
 
+.main-content-wrapper {
+  display: flex;
+}
+
+.right-form-wrapper {
+  width: 50%;
+  margin: auto;
+}
+
+.left-form-wrapper {
+  width: 50%;
+}
+
 /*# sourceMappingURL=contacts.css.map */

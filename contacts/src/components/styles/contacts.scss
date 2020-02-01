@@ -172,7 +172,7 @@ div {
   padding-right: 4px;
 }
 
-.add-user-btn{
+.add-user-btn {
   font-size: 15px;
   margin: 5px;
   background-color: #ffffff;
@@ -183,8 +183,20 @@ div {
   outline: none;
 }
 
-.form-submit-btn{
+.form-submit-btn {
   background-color: #36c84d;
   color: #FFF;
   font-weight: bold;
+}
+
+.main-content-wrapper{
+  display: flex;
+}
+.right-form-wrapper {
+  width: 50%;
+  margin: auto;
+}
+
+.left-form-wrapper {
+  width: 50%;
 }

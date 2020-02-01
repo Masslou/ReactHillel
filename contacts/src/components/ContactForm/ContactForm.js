@@ -18,6 +18,7 @@ class ContactForm extends Component {
         const {contact} = this.props;
         return (
             <>
+                <h1>Fill contact information:</h1>
                 <form onSubmit={this.onFormSubmit}>
                     <input
                         type="text"
