@@ -11,7 +11,7 @@ class ContactListItem extends Component {
     };
 
     onEditBtnClick = () => {
-        this.props.onEdit(this.props.item.id)
+        this.props.onEdit(this.props.item)
     };
 
     render() {

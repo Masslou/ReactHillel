@@ -62,16 +62,19 @@ class Contacts extends Component {
         });
     };
 
-    onContactSelect = (id)=>{
-        const selectedContactOnEdit = this.state.contactsList.filter((item)=>{
-            return item.id === id;
-        });
+    editContact = (contact) => {
         this.setState({
-            selectedContact: selectedContactOnEdit,
-            showNewUserForm: true
-        });
-
+            showNewUserForm: true,
+            selectedContact: {
+                id: contact.id,
+                name: contact.name,
+                surname: contact.surname,
+                phone: contact.phone,
+                age: contact.age
+            }
+        })
     };
+
 
     render() {
         return (
@@ -89,7 +92,7 @@ class Contacts extends Component {
                         <ContactListItems
                             contactsList={this.state.contactsList}
                             onDelete={this.deleteContact}
-                            onEdit={this.onContactSelect}
+                            onEdit={this.editContact}
                         />
 
                     </div>
@@ -101,7 +104,6 @@ class Contacts extends Component {
                 {
                     this.state.showNewUserForm ?
                         <ContactForm
-                            key={this.state.selectedContact.id}
                             contact={this.state.selectedContact}
                             onSubmit={this.onFormSubmit}
                             onChange={this.onFormChange}/> : null
