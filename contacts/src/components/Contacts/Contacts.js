@@ -1,7 +1,7 @@
 //CORE
 import React, {Component} from 'react';
 //COMPONENTS
-import ContactListItems from '../ContactsListItems/ContactListItems';
+import ContactsList from '../ContactList/ContactsList';
 import ContactForm from "../ContactForm/ContactForm";
 //STYLES
 import '../styles/contacts.scss'
@@ -17,6 +17,13 @@ class Contacts extends Component {
         showContactForm: false
     };
 
+    getEmptyContactData() {
+        return {
+            "name": '',
+            "surname": '',
+            "phone": '',
+        }
+    }
 
     onSubmit = (contact) => {
         if (contact.id) {
@@ -37,7 +44,7 @@ class Contacts extends Component {
     updateContact(contact) {
         this.setState({
             contactsList: this.state.contactsList
-                .map(item => item.id === contact.id ? contact : item),
+                .map(item => item.id === contact.id ? {...contact} : item),
             selectedContact: this.getEmptyContactData()
         });
     }
@@ -50,14 +57,6 @@ class Contacts extends Component {
             }
         })
     };
-
-    getEmptyContactData() {
-        return {
-            "name": '',
-            "surname": '',
-            "phone": '',
-        }
-    }
 
     onAddContact = () => {
         this.setState({
@@ -89,37 +88,37 @@ class Contacts extends Component {
         return (
             <>
                 <div className="main-content-wrapper">
-                <div className="left-form-wrapper">
-                    <div className="table-container">
-                        <div className="flex-table header">
-                            <div className="flex-row title">ID</div>
-                            <div className="flex-row title">NAME</div>
-                            <div className="flex-row title">SURNAME</div>
-                            <div className="flex-row title">PHONE</div>
-                            <div className="flex-row title">OPTIONS</div>
+                    <div className="left-form-wrapper">
+                        <div className="table-container">
+                            <div className="flex-table header">
+                                <div className="flex-row title">ID</div>
+                                <div className="flex-row title">NAME</div>
+                                <div className="flex-row title">SURNAME</div>
+                                <div className="flex-row title">PHONE</div>
+                                <div className="flex-row title">OPTIONS</div>
+                            </div>
+                            <ContactsList
+                                contactsList={this.state.contactsList}
+                                onDelete={this.deleteContact}
+                                onEdit={this.editContact}
+                            />
+
+
                         </div>
-                        <ContactListItems
-                            contactsList={this.state.contactsList}
-                            onDelete={this.deleteContact}
-                            onEdit={this.editContact}
-                        />
 
-
+                        <button className='add-user-btn'
+                                onClick={this.onAddContact}>{!this.state.showContactForm ? 'Add contact' : 'Hide form'}</button>
                     </div>
 
-                    <button className='add-user-btn'
-                            onClick={this.onAddContact}>{!this.state.showContactForm ? 'Add contact' : 'Hide form'}</button>
-                </div>
-
-                <div className="right-form-wrapper">
-                    {
-                        this.state.showContactForm ?
-                            <ContactForm
-                                contact={this.state.selectedContact}
-                                onSubmit={this.onSubmit}
-                                onChange={this.onFormChange}/> : null
-                    }
-                </div>
+                    <div className="right-form-wrapper">
+                        {
+                            this.state.showContactForm ?
+                                <ContactForm
+                                    contact={this.state.selectedContact}
+                                    onSubmit={this.onSubmit}
+                                    onChange={this.onFormChange}/> : null
+                        }
+                    </div>
                 </div>
 
             </>

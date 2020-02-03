@@ -5,7 +5,7 @@ import propTypes from '../propTypes'
 import ContactListItem from "../ContactListItem/ContactListItem";
 
 
-class ContactListItems extends Component {
+class ContactsList extends Component {
 
     render() {
 
@@ -28,11 +28,11 @@ class ContactListItems extends Component {
     }
 }
 
-ContactListItems.propTypes = {
+ContactsList.propTypes = {
     contactsList: propTypes.contactItems.isRequired,
     onDelete: propTypes.func.isRequired,
     onEdit: propTypes.func.isRequired
 };
 
 
-export default ContactListItems;
+export default ContactsList;
