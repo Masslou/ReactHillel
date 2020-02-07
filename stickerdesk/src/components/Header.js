@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default function Header({onAddBtnClick}) {
     return (
         <header style={headerStyles}>
-            <span style={headerText}>Stickerz</span>
+            <span style={headerText}>Stickerz.</span>
             <button style={addBtnStyle}
                     onClick={onAddBtnClick}>Add new sticker
             </button>
@@ -14,6 +14,7 @@ export default function Header({onAddBtnClick}) {
 
 const headerText = {
     textShadow: '3px -6px 0px rgba(0,0,0,0.5)',
+    fontSize: '50px'
 };
 
 const headerStyles = {
@@ -25,7 +26,7 @@ const headerStyles = {
     color: 'white',
     fontWeight: 'bold',
     userSelect: 'none',
-    boxShadow: '0 0 10px rgba(0,0,0,0.5)'
+    boxShadow: '0 5px 10px rgba(0,0,0,0.5)'
 };
 
 const addBtnStyle = {
@@ -34,7 +35,7 @@ const addBtnStyle = {
     backgroundImage: 'linear-gradient(to top right, red, #f06d06)',
     fontWeight: 'bold',
     color: 'white',
-    margin: '15px',
+    margin: '0 10px',
     width: 'fit-content'
 };
 
