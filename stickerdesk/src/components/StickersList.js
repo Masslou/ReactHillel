@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from './propTypes'
 import StickerItem from "./StickerItem";
 
-export default function StickersList({stickersList, onDelete}) {
+export default function StickersList({stickersList, onDelete,onChange}) {
     return (
         stickersList.map((sticker) => {
 
@@ -10,6 +10,7 @@ export default function StickersList({stickersList, onDelete}) {
                 key={sticker.id}
                 sticker={sticker}
                 onDelete={onDelete}
+                onChange={onChange}
             />
 
         })
@@ -17,6 +18,7 @@ export default function StickersList({stickersList, onDelete}) {
 }
 
 StickersList.propTypes = {
+    onChange: propTypes.func.isRequired,
     onDelete: propTypes.func.isRequired,
     stickersList: propTypes.stickersList.isRequired
 };

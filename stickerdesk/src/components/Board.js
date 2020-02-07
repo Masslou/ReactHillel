@@ -23,12 +23,25 @@ export default function Board() {
             {
                 id: Date.now(),
                 title: '',
-                description: ''
+                description: '',
+                isEdit: true
             }
         ];
 
         setStickersList(stickers);
         saveSate(stickers);
+    };
+
+    const onStickerChange = (id, changes) => {
+        let sticker = stickersList.find(item => item.id === id);
+
+        sticker = {
+            ...sticker,
+            ...changes
+        };
+
+        setStickersList(stickersList.map(item => item.id === sticker.id ? sticker : item));
+        saveSate(stickersList);
 
     };
 
@@ -36,8 +49,8 @@ export default function Board() {
         const newStickersList = stickersList.filter((item) => {
             return item.id !== sticker.id
         });
-
         setStickersList(newStickersList);
+        saveSate(newStickersList)
     };
 
     return (
@@ -47,13 +60,14 @@ export default function Board() {
                 <StickersList
                     stickersList={stickersList}
                     onDelete={deleteSticker}
+                    onChange={onStickerChange}
                 />
-                </div>
+            </div>
         </>
     )
 }
 
-const boardWrapperStyles ={
+const boardWrapperStyles = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
