@@ -51,7 +51,7 @@ class Contacts extends Component {
 
     onFormChange = (changes) => {
         this.setState({
-            selectedContact: {
+            name: {
                 ...this.state.selectedContact,
                 ...changes
             }

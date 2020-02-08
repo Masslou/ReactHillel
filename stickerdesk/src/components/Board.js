@@ -24,7 +24,6 @@ export default function Board() {
                 id: Date.now(),
                 title: '',
                 description: '',
-                isEdit: true
             }
         ];
 
