@@ -30,9 +30,9 @@ export default function Board() {
             isEdit: false
         };
 
-        const newStickers = stickersList.map(item => item.id === sticker.id ? sticker : item);
-        setStickersList(newStickers);
-        saveState(newStickers);
+        const updatedStickersList = stickersList.map(item => item.id === sticker.id ? sticker : item);
+        setStickersList(updatedStickersList);
+        saveState(updatedStickersList);
     };
 
 
@@ -58,9 +58,9 @@ export default function Board() {
             ...changes
         };
 
-        const newStickers = stickersList.map(item => item.id === sticker.id ? sticker : item);
-        setStickersList(newStickers);
-        saveState(newStickers);
+        const changedStickersList = stickersList.map(item => item.id === sticker.id ? sticker : item);
+        setStickersList(changedStickersList);
+        saveState(changedStickersList);
 
     };
 
