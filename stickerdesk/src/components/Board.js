@@ -8,10 +8,16 @@ export default function Board() {
 
 
     useEffect(() => {
-        const data = localStorage.getItem('stickers');
-        setStickersList(data ? JSON.parse(data) : []);
+        setStickersList(restoreData())
     }, []);
 
+
+    const restoreData = () =>
+    {
+        const data = localStorage.getItem('stickers');
+        return data ? JSON.parse(data) : [];
+
+    };
 
     const saveState = (data) => {
         localStorage.setItem('stickers', JSON.stringify(data));
