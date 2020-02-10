@@ -107,6 +107,8 @@ const stickerItemDescriptionStyles = {
 };
 
 StickerItem.propTypes = {
+    sticker: propTypes.stickerItem.isRequired,
     onChange: propTypes.func.isRequired,
-    onDelete: propTypes.func.isRequired
+    onDelete: propTypes.func.isRequired,
+    onSave: propTypes.func.isRequired
 };

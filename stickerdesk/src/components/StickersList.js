@@ -21,5 +21,6 @@ export default function StickersList({stickersList, onDelete,onChange,onSave}) {
 StickersList.propTypes = {
     onChange: propTypes.func.isRequired,
     onDelete: propTypes.func.isRequired,
+    onSave: propTypes.func.isRequired,
     stickersList: propTypes.stickersList.isRequired
 };
