@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import propTypes from './propTypes';
 
 export default function Header({onAddBtnClick}) {
     return (
@@ -40,7 +40,7 @@ const addBtnStyle = {
 };
 
 Header.propTypes = {
-    onAddBtnClick: PropTypes.func.isRequired,
+    onAddBtnClick: propTypes.func.isRequired,
 };
 
 

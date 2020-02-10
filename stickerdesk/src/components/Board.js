@@ -13,8 +13,20 @@ export default function Board() {
     }, []);
 
 
-    const saveSate = (data) => {
+    const saveState = (data) => {
         localStorage.setItem('stickers', JSON.stringify(data));
+    };
+
+    const saveSticker = (id) => {
+        let sticker = stickersList.find(item => item.id === id);
+        sticker = {
+            ...sticker,
+            isEdit: false
+        };
+
+        const newStickers = stickersList.map(item => item.id === sticker.id ? sticker : item);
+        setStickersList(newStickers);
+        saveState(newStickers);
     };
 
 
@@ -24,11 +36,12 @@ export default function Board() {
                 id: Date.now(),
                 title: '',
                 description: '',
+                isEdit: true
             }
         ];
 
         setStickersList(stickers);
-        saveSate(stickers);
+        saveState(stickers);
     };
 
     const onStickerChange = (id, changes) => {
@@ -39,8 +52,9 @@ export default function Board() {
             ...changes
         };
 
-        setStickersList(stickersList.map(item => item.id === sticker.id ? sticker : item));
-        saveSate(stickersList);
+        const newStickers = stickersList.map(item => item.id === sticker.id ? sticker : item);
+        setStickersList(newStickers);
+        saveState(newStickers);
 
     };
 
@@ -49,7 +63,7 @@ export default function Board() {
             return item.id !== sticker.id
         });
         setStickersList(newStickersList);
-        saveSate(newStickersList)
+        saveState(newStickersList)
     };
 
     return (
@@ -60,6 +74,7 @@ export default function Board() {
                     stickersList={stickersList}
                     onDelete={deleteSticker}
                     onChange={onStickerChange}
+                    onSave={saveSticker}
                 />
             </div>
         </>
