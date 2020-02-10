@@ -58,9 +58,9 @@ export default function Board() {
             ...changes
         };
 
-        const changedStickersList = stickersList.map(item => item.id === sticker.id ? sticker : item);
-        setStickersList(changedStickersList);
-        saveState(changedStickersList);
+        const updatedStickersList = stickersList.map(item => item.id === sticker.id ? sticker : item);
+        setStickersList(updatedStickersList);
+        saveState(updatedStickersList);
 
     };
 
