@@ -4,23 +4,22 @@ import propTypes from './propTypes';
 export default function Header({onAddBtnClick}) {
     return (
         <header style={headerStyles}>
-            <span style={headerText}>Todo List</span>
+            <span style={headerText}>ToDo List</span>
             <button style={addBtnStyle}
-                    onClick={onAddBtnClick}>Add new sticker
+                    onClick={onAddBtnClick}>Add
             </button>
         </header>
     );
 }
 
 const headerText = {
-    textShadow: '3px -6px 0px rgba(0,0,0,0.5)',
+    textShadow: 'rgba(154, 154, 154, 0.5) 3px -6px 0px',
     fontSize: '50px'
 };
 
 const headerStyles = {
     position: 'relative',
-    backgroundColor: '#f9c5d1',
-    backgroundImage: 'linear-gradient(315deg, #f9c5d1 0%, #9795ef 74%)',
+    backgroundColor: 'black',
     textAlign: 'center',
     fontSize: '40px',
     color: 'white',
@@ -36,7 +35,8 @@ const addBtnStyle = {
     fontWeight: 'bold',
     color: 'white',
     margin: '0 10px',
-    width: 'fit-content'
+    width: 'fit-content',
+    outlineColor: '#FFF'
 };
 
 Header.propTypes = {
