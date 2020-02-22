@@ -47,5 +47,7 @@ const todoItemDoneStyles = {
 
 TodoItem.propTypes = {
     todo: propTypes.todoItem.isRequired,
-    onDelete: propTypes.func.isRequired,
+    onEdit: propTypes.func.isRequired,
+    onClick: propTypes.func.isRequired,
+    onDelete: propTypes.func.isRequired
 };

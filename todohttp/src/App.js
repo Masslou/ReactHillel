@@ -57,7 +57,8 @@ function App() {
         api.put(todo.id, todo).then(resp =>
             setTodos(todos.map(item =>
                 item.id === resp.data.id ? resp.data : item))
-        )    }
+        )
+    }
 
     function createTodo(todo) {
         api.post('', todo)
@@ -103,6 +104,7 @@ function App() {
                     onCancel={closeModalWindow}
                     onChange={onTodoChange}
                     todo={selectedTodo}
+                    isOpen={todoModalShow}
                 />
                 : null}
         </div>

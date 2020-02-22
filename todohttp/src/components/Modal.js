@@ -96,6 +96,7 @@ const submitButton = {
 TodoModalForm.propTypes = {
     todo: propTypes.todoItem.isRequired,
     onCancel: propTypes.func.isRequired,
+    isOpen: propTypes.isOpen.isRequired,
     onSave: propTypes.func.isRequired,
     onChange: propTypes.func.isRequired,
 };
