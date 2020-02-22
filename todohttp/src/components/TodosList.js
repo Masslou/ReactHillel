@@ -19,7 +19,7 @@ export default function TodosList({todosList, onDelete, onClick, onEdit}) {
 }
 
 TodosList.propTypes = {
-    todosList: propTypes.todoItem.isRequired,
+    todosList: propTypes.todosList.isRequired,
     onDelete: propTypes.func.isRequired,
     onClick: propTypes.func.isRequired,
     onEdit: propTypes.func.isRequired
