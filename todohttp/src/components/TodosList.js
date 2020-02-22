@@ -2,7 +2,7 @@ import React from 'react';
 import TodoItem from './TodoItem';
 import propTypes from "./propTypes";
 
-export default function TodosList({todosList, onDelete, onClick}) {
+export default function TodosList({todosList, onDelete, onClick, onEdit}) {
     return (
         <ul>
             {todosList.map(todoItem => (
@@ -11,6 +11,7 @@ export default function TodosList({todosList, onDelete, onClick}) {
                     todo={todoItem}
                     onClick={onClick}
                     onDelete={onDelete}
+                    onEdit={onEdit}
                 />
             ))}
         </ul>
@@ -18,5 +19,8 @@ export default function TodosList({todosList, onDelete, onClick}) {
 }
 
 TodosList.propTypes = {
+    todosList: propTypes.todoItem.isRequired,
     onDelete: propTypes.func.isRequired,
+    onClick: propTypes.func.isRequired,
+    onEdit: propTypes.func.isRequired
 };

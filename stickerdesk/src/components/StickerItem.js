@@ -5,7 +5,7 @@ export default function StickerItem({sticker, onDelete, onChange, onSave}) {
 
 
     const onChangeSticker = (event) => {
-        onChange(sticker.id, {[event.target.name]: event.target.value})
+        onChange({[event.target.name]: event.target.value})
     };
 
 

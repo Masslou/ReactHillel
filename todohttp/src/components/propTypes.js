@@ -8,9 +8,11 @@ const todoItem = PropTypes.shape({
 
 const todosList = PropTypes.arrayOf(todoItem);
 
+const isOpen = PropTypes.bool;
 
 export default {
     ...PropTypes,
     todoItem,
+    isOpen,
     todosList
 }
