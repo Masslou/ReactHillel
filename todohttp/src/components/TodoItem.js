@@ -13,8 +13,14 @@ export default function TodoItem({todo, onDelete, onEdit, onClick}) {
             onClick={() => onClick(todo)}
         >
             {todo.title}{' '}
-            <span style={todoDelBtnStyles} onClick={() => onDelete(todo.id)}>X</span>
-            <span style={todoEditBtnStyles} onClick={() => onEdit(todo.id)}>edit</span>
+            <span style={todoDelBtnStyles} onClick={(event) => {
+                event.stopPropagation();
+                onDelete(todo.id)
+            }}>X</span>
+            <span style={todoEditBtnStyles} onClick={(event) => {
+                event.stopPropagation();
+                onEdit(todo.id)
+            }}>edit</span>
         </li>
     );
 }
