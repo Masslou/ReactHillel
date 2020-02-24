@@ -2,42 +2,55 @@ import React from 'react';
 import propTypes from './propTypes';
 
 export default function TodoItem({todo, onDelete, onEdit, onClick}) {
-    return (
-        <li style={{
-            ...todoItemStyles,
-            ...(todo.isDone ? {
-                ...todoItemDoneStyles
-            } : {}),
 
-        }}
-            onClick={() => onClick(todo)}
-        >
-            {todo.title}{' '}
-            <span style={todoDelBtnStyles} onClick={(event) => {
-                event.stopPropagation();
-                onDelete(todo.id)
-            }}>X</span>
-            <span style={todoEditBtnStyles} onClick={(event) => {
-                event.stopPropagation();
-                onEdit(todo.id)
-            }}>edit</span>
+    function onEditBtnClick(event) {
+        event.stopPropagation();
+        onEdit(todo.id)
+    }
+
+    function onDeleteBtnClick(event) {
+        event.stopPropagation();
+        onDelete(todo.id)
+    }
+
+    return (
+        <li style={todoItemStyles} onClick={() => onClick(todo)}>
+            <span style={{
+                ...todoItemTitleStyles,
+                ...(todo.isDone ? {
+                    ...todoItemDoneStyles
+                } : {}),
+            }}>{todo.title}{' '}</span>
+            <span style={todoDelBtnStyles}
+                  onClick={(event) => onDeleteBtnClick(event)}>delete</span>
+            <span style={todoEditBtnStyles}
+                  onClick={(event) => onEditBtnClick(event)}>edit</span>
         </li>
     );
 }
 
 const todoItemStyles = {
-    textAlign: 'left'
+    display: 'flex'
+};
+
+const todoItemTitleStyles = {
+    textAlign: 'left',
+    cursor: 'pointer',
+    margin: '10px 10px 0 0'
 };
 const todoDelBtnStyles = {
+    padding: '2px',
     fontSize: '10px',
     margin: '4px 2px',
     backgroundImage: 'linear-gradient(to top right, red, #f06d06)',
     color: 'white',
     fontWeight: 'bold',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    border: '1px solid black'
 };
 
 const todoEditBtnStyles = {
+    padding: '2px',
     fontSize: '10px',
     margin: '5px',
     backgroundColor: 'lightgreen',
@@ -48,7 +61,7 @@ const todoEditBtnStyles = {
 };
 
 const todoItemDoneStyles = {
-    backgroundColor: 'yellow'
+    textDecoration: 'line-through'
 };
 
 TodoItem.propTypes = {
