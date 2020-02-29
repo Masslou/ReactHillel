@@ -15,6 +15,6 @@ export function deleteListItem(id) {
     return {type: DELETE_LIST_ITEM, payload: id}
 }
 
-export function editListItem(todoItem) {
-    return {type: EDIT_LIST_ITEM, payload: todoItem}
+export function editListItem(id) {
+    return {type: EDIT_LIST_ITEM, payload: id}
 }

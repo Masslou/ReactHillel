@@ -1,11 +1,13 @@
 import React from 'react';
 import propTypes from './propTypes';
 
-export default function TodoModalForm({todo, isOpen, onCancel, onSave, onChange}) {
+
+
+export default function TodoModalForm({onChange, submit}) {
 
     function onFormSubmit(event) {
         event.preventDefault();
-        onSave(todo)
+        submit(todo)
     }
 
     function onChangeTodo(event) {

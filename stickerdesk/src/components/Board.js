@@ -30,7 +30,10 @@ export default function Board() {
             isEdit: false
         };
 
-        const updatedStickersList = stickersList.map(item => item.id === sticker.id ? sticker : item);
+        const updatedStickersList = stickersList.map(item => item.id === sticker.id ? sticker = {
+            ...sticker,
+            isEdit: false
+        } : item);
         setStickersList(updatedStickersList);
         saveState(updatedStickersList);
     };

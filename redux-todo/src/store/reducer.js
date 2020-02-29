@@ -9,14 +9,14 @@ const initialState = {
 function getEmptyTodo() {
     return {
         title: '',
-        isDone: false,
     }
 }
 
 
 function updateTodo(state, payload) {
     return {
-        ...state, todoList: state.todoList.map((item) => {
+        ...state,
+        todoList: state.todoList.map((item) => {
             return item.id === payload.id ? payload : item;
         }),
         selectedTodo: getEmptyTodo()
@@ -25,14 +25,21 @@ function updateTodo(state, payload) {
 
 function createTodo(state, payload) {
     return {
-        ...state, todoList: [...state.todoList, {id: Date.now(), ...payload}],
+        ...state,
+        todoList: [
+            ...state.todoList,
+            {
+                id: Date.now(),
+                ...payload
+            }
+        ],
         selectedTodo: getEmptyTodo()
     }
 }
 
 
 export default function (state = initialState, {type, payload}) {
-    console.log(state, type, payload);
+    console.log(state, type, payload)
     switch (type) {
         case CHANGE_VALUE:
             return {...state, selectedTodo: {...state.selectedTodo, ...payload}};
@@ -44,12 +51,8 @@ export default function (state = initialState, {type, payload}) {
                     return item.id !== payload
                 })
             };
-            case EDIT_LIST_ITEM:
-            return {
-                ...state, todoList: state.todoList.filter((item) => {
-                    return item.id !== payload.id
-                })
-            };
+        case EDIT_LIST_ITEM:
+            return {...state, selectedTodo: payload};
 
         default:
             return state

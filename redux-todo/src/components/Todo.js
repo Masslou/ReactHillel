@@ -23,11 +23,7 @@ function Todo() {
             <TodosList showModalWindow={showModalWindow}/>
 
             {todoModalShow ?
-                <TodoModalForm
-                    closeModalWindow={closeModalWindow}
-
-                />
-                : null}
+                <TodoModalForm closeModalWindow={closeModalWindow}/> : null}
         </div>
     );
 }

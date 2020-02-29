@@ -5,7 +5,6 @@ import {changeValue, onFormSubmit} from '../store/actions'
 function TodoModalForm({selectedTodo, closeModalWindow, onChange, onSubmit}) {
 
     function onFormSubmit(event) {
-        console.log(selectedTodo);
         event.preventDefault();
         onSubmit(selectedTodo);
         closeModalWindow();

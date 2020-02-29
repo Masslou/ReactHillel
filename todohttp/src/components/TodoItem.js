@@ -5,7 +5,7 @@ export default function TodoItem({todo, onDelete, onEdit, onClick}) {
 
     function onEditBtnClick(event) {
         event.stopPropagation();
-        onEdit(todo.id)
+        onEdit(todo)
     }
 
     function onDeleteBtnClick(event) {

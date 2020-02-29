@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from "./propTypes";
 
 export default function Header({onAdd}) {
     return (
@@ -37,5 +38,11 @@ const addBtnStyle = {
     width: 'fit-content',
     outlineColor: '#FFF'
 };
+
+Header.propTypes = {
+    onAdd: propTypes.func.isRequired
+};
+
+
 
 

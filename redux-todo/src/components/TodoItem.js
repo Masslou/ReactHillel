@@ -1,13 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {deleteListItem, editListItem} from "../store/actions";
+import propTypes from "./propTypes";
 
 function TodoItem({todo, deleteItem, editItem, showModalWindow}) {
 
     function onEditBtnClick(event) {
         event.stopPropagation();
         showModalWindow();
-        editItem(todo.id)
+        editItem(todo)
     }
 
     function onDeleteBtnClick(event) {
@@ -61,5 +62,13 @@ const mapDispatchToProps = {
     deleteItem: deleteListItem,
     editItem: editListItem,
 };
+
+TodoItem.propTypes = {
+    todo: propTypes.todoItem.isRequired,
+    editItem: propTypes.func.isRequired,
+    deleteItem: propTypes.func.isRequired,
+    showModalWindow: propTypes.func.isRequired
+};
+
 
 export default connect(null, mapDispatchToProps)(TodoItem);
