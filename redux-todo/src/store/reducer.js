@@ -41,16 +41,14 @@ function createTodo(state, payload) {
 export default function (state = initialState, {type, payload}) {
     console.log(state, type, payload)
     switch (type) {
-
         case CHANGE_VALUE:
-            return {...state,
+            return {
+                ...state,
                 selectedTodo: {...state.selectedTodo, ...payload}
             };
-
         case FORM_SUBMIT:
             return payload.id ?
                 updateTodo(state, payload) : createTodo(state, payload);
-
         case DELETE_LIST_ITEM:
             return {
                 ...state,
@@ -58,12 +56,11 @@ export default function (state = initialState, {type, payload}) {
                     return item.id !== payload
                 })
             };
-
         case EDIT_LIST_ITEM:
-            return {...state,
+            return {
+                ...state,
                 selectedTodo: payload
             };
-
         default:
             return state
     }

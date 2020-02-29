@@ -1,7 +1,7 @@
 import React from 'react';
-import TodoItem from './TodoItem';
 import {connect} from 'react-redux';
 import propTypes from "./propTypes";
+import TodoItem from './TodoItem';
 
 
 function TodoList({todoList, showModalWindow}) {
@@ -26,4 +26,4 @@ TodoList.propTypes = {
     showModalWindow: propTypes.func.isRequired
 };
 
-export default connect(mapStateToProps, null)(TodoList);
+export default connect(mapStateToProps)(TodoList);
