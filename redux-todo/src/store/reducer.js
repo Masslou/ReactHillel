@@ -1,5 +1,5 @@
 import todoList from '../data/todoList';
-import {CHANGE_VALUE, FORM_SUBMIT, DELETE_LIST_ITEM, EDIT_LIST_ITEM} from './actions';
+import {CHANGE_VALUE, FORM_SUBMIT, DELETE_LIST_ITEM, EDIT_LIST_ITEM, TOGGLE_LIST_ITEM} from './actions';
 
 const initialState = {
     todoList: todoList,
@@ -39,7 +39,7 @@ function createTodo(state, payload) {
 
 
 export default function (state = initialState, {type, payload}) {
-    console.log(state, type, payload)
+    console.log(state, type, payload);
     switch (type) {
         case CHANGE_VALUE:
             return {
@@ -54,6 +54,13 @@ export default function (state = initialState, {type, payload}) {
                 ...state,
                 todoList: state.todoList.filter((item) => {
                     return item.id !== payload
+                })
+            };
+        case TOGGLE_LIST_ITEM:
+            return {
+                ...state,
+                todoList: state.todoList.map((item) => {
+                    return item.id === payload ? {...state.payload, isOpen: !state.isOpen} : item
                 })
             };
         case EDIT_LIST_ITEM:

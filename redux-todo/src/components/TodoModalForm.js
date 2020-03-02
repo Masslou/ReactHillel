@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {changeValue, onFormSubmit} from '../store/actions'
+import propTypes from "./propTypes";
 
 function TodoModalForm({selectedTodo, closeModalWindow, onChange, onSubmit}) {
 
@@ -93,6 +94,13 @@ const submitButton = {
     border: '2px solid black',
     padding: '5px',
     borderRadius: '5px'
+};
+
+TodoModalForm.propTypes = {
+    selectedTodo: propTypes.todoItem.isRequired,
+    closeModalWindow: propTypes.func.isRequired,
+    onChange: propTypes.func.isRequired,
+    onSubmit: propTypes.func.isRequired
 };
 
 
