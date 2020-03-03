@@ -21,5 +21,6 @@ export function editListItem(id) {
 }
 
 export function toggleListItem(id) {
-    return {type: toggleListItem, payload: id}
+    return {type: TOGGLE_LIST_ITEM, payload: id}
 }
+

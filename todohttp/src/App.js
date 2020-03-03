@@ -71,7 +71,7 @@ function App() {
             setTodos(
                 todos.map(item => (item.id === resp.data.id ? resp.data : item))
             );
-        }).then(closeModalWindow());
+        }).then(closeModalWindow);
     }
 
     function onAddNewTodo() {

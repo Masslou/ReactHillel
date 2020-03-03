@@ -59,11 +59,12 @@ export default function (state = initialState, {type, payload}) {
         case TOGGLE_LIST_ITEM:
             return {
                 ...state,
-                todoList: state.todoList.map((item) => {
-                    return item.id === payload ? {...state.payload, isOpen: !state.isOpen} : item
-                })
-            };
-        case EDIT_LIST_ITEM:
+                todoList: state.todoList.map((item) => item.id === payload ? {...item, isDone: !item.isDone} : item
+                )
+            }
+                ;
+        case
+        EDIT_LIST_ITEM:
             return {
                 ...state,
                 selectedTodo: payload

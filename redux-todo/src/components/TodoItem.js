@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {deleteListItem, editListItem} from "../store/actions";
+import {deleteListItem, editListItem, toggleListItem} from "../store/actions";
 import propTypes from "./propTypes";
 
-function TodoItem({todo, deleteItem, editItem, showModalWindow}) {
+function TodoItem({todo, deleteItem, editItem, toggleItem, showModalWindow}) {
 
     function onEditBtnClick(event) {
         event.stopPropagation();
@@ -18,7 +18,8 @@ function TodoItem({todo, deleteItem, editItem, showModalWindow}) {
 
     return (
         <li style={todoItemStyles}>
-            <span style={todoItemTitleStyles}>{todo.title}</span>
+            <span style={{textDecoration: todo.isDone ? 'line-through' : 'none'}}
+                  onClick={() => toggleItem(todo.id)}>{todo.title}</span>
             <span style={todoDelBtnStyles}
                   onClick={(event) => onDeleteBtnClick(event)}>delete</span>
             <span style={todoEditBtnStyles}
@@ -61,12 +62,14 @@ const todoEditBtnStyles = {
 const mapDispatchToProps = {
     deleteItem: deleteListItem,
     editItem: editListItem,
+    toggleItem: toggleListItem
 };
 
 TodoItem.propTypes = {
     todo: propTypes.todoItem.isRequired,
     editItem: propTypes.func.isRequired,
     deleteItem: propTypes.func.isRequired,
+    toggleListItem: propTypes.func.isRequired,
     showModalWindow: propTypes.func.isRequired
 };
 
