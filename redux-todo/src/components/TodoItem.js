@@ -32,11 +32,6 @@ const todoItemStyles = {
     display: 'flex'
 };
 
-const todoItemTitleStyles = {
-    textAlign: 'left',
-    cursor: 'pointer',
-    margin: '10px 10px 0 0'
-};
 const todoDelBtnStyles = {
     padding: '2px',
     fontSize: '10px',
