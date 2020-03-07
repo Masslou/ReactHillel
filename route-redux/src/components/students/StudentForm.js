@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default function Home() {
+function StudentForm(props) {
     return (
         <div>
-            HELLO FROM HOME
+
         </div>
     );
 }
+
+export default StudentForm;

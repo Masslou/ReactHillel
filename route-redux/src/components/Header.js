@@ -5,20 +5,20 @@ export default function Header() {
     return (
         <div style={headerStyles}>
             <Link to='/home'>
-                <button style={addBtnStyle}>Home page</button>
+                <button style={navButton}>Home page</button>
             </Link>
             <Link to='/students'>
-                <button style={addBtnStyle}>Students</button>
+                <button style={navButton}>Students</button>
             </Link>
             <Link to='/groups'>
-                <button style={addBtnStyle}>Groups</button>
+                <button style={navButton}>Groups</button>
             </Link>
         </div>
     );
 }
 
 const headerStyles = {
-    position: 'relative',
+    display: 'flex',
     backgroundColor: 'black',
     textAlign: 'center',
     fontSize: '40px',
@@ -28,15 +28,15 @@ const headerStyles = {
     boxShadow: '0 5px 10px rgba(0,0,0,0.5)'
 };
 
-const addBtnStyle = {
+const navButton = {
     cursor: 'pointer',
     fontSize: '20px',
     backgroundImage: 'linear-gradient(to top right, red, #f06d06)',
     fontWeight: 'bold',
     color: 'white',
-    margin: '0 10px',
+    margin: '0 10px 20px 5px',
     width: 'fit-content',
-    outlineColor: '#FFF'
+    outlineColor: '#FFF',
 
 };
 
