@@ -1,10 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import StudentItem from './StudentItem';
-import {deleteGroup, searchGroup} from "../../store/actions/groupsActions";
 import {deleteStudent, searchStudent} from "../../store/actions/studentsActions";
 
-function StudentsList({list,search, onSearch, onDeleteStudent}) {
+function StudentsList({list, search, onSearch, onDeleteStudent}) {
 
     function onDelete(event, item) {
         event.stopPropagation();
@@ -27,7 +26,7 @@ function StudentsList({list,search, onSearch, onDeleteStudent}) {
     );
 }
 
-function mapStateToProps({students}, {id}) {
+function mapStateToProps({students}) {
     return {
         list: students.list.filter(item => item.title.includes(students.search)),
         search: students.search

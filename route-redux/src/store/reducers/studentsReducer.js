@@ -34,6 +34,12 @@ export default function (state = initialState, {type, payload}) {
                     ? updateStudent(state.list, payload)
                     : createStudent(state.list, payload)
             };
+
+        case ACTION_STUDENT_SEARCH:
+            return {
+                ...state,
+                search: payload
+            };
         default:
             return state;
 
