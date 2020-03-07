@@ -1,22 +1,41 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import StudentItem from './StudentItem';
+import {deleteGroup, searchGroup} from "../../store/actions/groupsActions";
+import {deleteStudent, searchStudent} from "../../store/actions/studentsActions";
 
-function StudentsList({list}) {
+function StudentsList({list,search, onSearch, onDeleteStudent}) {
+
+    function onDelete(event, item) {
+        event.stopPropagation();
+        onDeleteStudent(item.id);
+    }
+
     return (
         <div>
-            {list.map(item =>
-                <StudentItem key={item.id} item={item}/>
-            )}
+            <input
+                type="text"
+                value={search}
+                onChange={({target}) => onSearch(target.value)}
+            />
+            <ul>
+                {list.map(item =>
+                    <StudentItem key={item.id} item={item} onDelete={onDelete}/>
+                )}
+            </ul>
         </div>
     );
 }
 
-function mapStateToProps({students}) {
+function mapStateToProps({students}, {id}) {
     return {
-        list: students.list
+        list: students.list.filter(item => item.title.includes(students.search)),
+        search: students.search
     }
 }
 
-
-export default connect(mapStateToProps)(StudentsList)
+const mapDispatchToProps = {
+    onSearch: searchStudent,
+    onDeleteStudent: deleteStudent,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(StudentsList)

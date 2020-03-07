@@ -6,10 +6,13 @@ export default function GroupItem({item, onDelete}) {
     return (
         <>
             <Link to={`${url}/${item.id}`}>
-                <li>{item.title}
+                <li style={groupItemStyles}>{item.title}
                 </li>
             </Link>
             <button onClick={(event) => onDelete(event, item)}>x</button>
         </>
     );
 }
+
+const groupItemStyles = {
+};

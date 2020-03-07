@@ -6,7 +6,7 @@ import StudentForm from "./StudentForm";
 export default function Students() {
     const {path, url} = useRouteMatch();
     return (
-        <div>
+        <div style={mainContentStyles}>
             <h3>Students</h3>
             <Link to={`${url}/new`}>
                 <button style={addBtnStyle}>Add student</button>
@@ -16,7 +16,6 @@ export default function Students() {
                     <StudentsList/>
                 </Route>
                 <Route path={`${path}/:id`} render={(route) => {
-                    console.log(route.match)
                     return <StudentForm id={route.match.params.id}/>
                 }}>
                 </Route>
@@ -35,4 +34,8 @@ const addBtnStyle = {
     width: 'fit-content',
     outlineColor: '#FFF',
     backgroundColor: '#00b712'
+};
+
+const mainContentStyles ={
+  marginLeft: '40px'
 };
