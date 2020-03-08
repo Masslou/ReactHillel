@@ -7,14 +7,24 @@ const initialState = {
     search: ''
 };
 
-function updateStudent(list, student) {
-    return list.map(item => item.id == student.id ? student : item)
+function createStudent(state, payload) {
+
+    return {
+        ...state,
+        list: [...state.list,
+            {id: Date.now(), groupId: payload.groupId, name: payload.title}]
+    }
 }
 
-function createStudent(list, student) {
-    student.id = Date.now();
-    return [...list, student]
+function updateStudent(state, payload) {
+    return {
+        ...state,
+        list: state.list.map(item => {
+            return item.id === payload.id ? payload : item;
+        })
+    }
 }
+
 
 export default function (state = initialState, {type, payload}) {
     switch (type) {
@@ -28,12 +38,7 @@ export default function (state = initialState, {type, payload}) {
             };
 
         case ACTION_STUDENT_SAVE:
-            return {
-                ...state,
-                list: payload.id
-                    ? updateStudent(state.list, payload)
-                    : createStudent(state.list, payload)
-            };
+            return payload.id ? createStudent(state, payload) : updateStudent(state, payload);
 
         case ACTION_STUDENT_SEARCH:
             return {

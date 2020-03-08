@@ -1,6 +1,5 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
-import Home from './components/Home'
 import Groups from './components/groups/Groups';
 import Students from './components/students/Students';
 import Header from './components/Header';
@@ -13,10 +12,7 @@ export default function App() {
             <div style={mainContent}>
                 <Switch>
                     <Route exact path='/'>
-                        <Home/>
-                    </Route>
-                    <Route path='/home'>
-                        <Home/>
+                        <Groups/>
                     </Route>
                     <Route path='/groups'>
                         <Groups/>
@@ -25,7 +21,7 @@ export default function App() {
                         <Students/>
                     </Route>
                     <Route path='*'>
-                        <Redirect to={'/home'}/>
+                        <Redirect to={'/groups'}/>
                     </Route>
                 </Switch>
             </div>

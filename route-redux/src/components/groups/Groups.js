@@ -13,6 +13,7 @@ export default function Groups() {
 
                 <Route exact path={`${path}/`}>
                     <GroupsList/>
+                    <Link to={`${url}/new`}><button style={addBtnStyle}>Add group</button></Link>
                 </Route>
 
                 <Route path={`${path}/:id`} render={(route) => {
@@ -20,8 +21,6 @@ export default function Groups() {
                 </Route>
 
             </Switch>
-
-            <Link to={`${url}/new`}><button style={addBtnStyle}>Add group</button></Link>
         </div>
     );
 }

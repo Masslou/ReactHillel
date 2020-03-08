@@ -4,9 +4,6 @@ import {Link} from "react-router-dom";
 export default function Header() {
     return (
         <div style={headerStyles}>
-            <Link to='/home'>
-                <button style={navButton}>Home page</button>
-            </Link>
             <Link to='/students'>
                 <button style={navButton}>Students</button>
             </Link>

@@ -8,12 +8,13 @@ function StudentForm({item, groups, onSave}) {
     const [studentItem, setStudentItem] = useState(item);
     const history = useHistory();
 
-    function onSaveClick(e) {
+    function onSaveClick() {
         onSave(studentItem);
         history.goBack();
     }
 
     function onChangeValue(target) {
+        console.log(target);
         setStudentItem({
             ...studentItem,
             ...{[target.name]: target.value}
@@ -23,9 +24,9 @@ function StudentForm({item, groups, onSave}) {
     return (
         <div>
             <input type='text'
-                   placeholder='name'
-                   name='name'
-                   value={studentItem.name}
+                   placeholder='title'
+                   name='title'
+                   value={studentItem.title}
                    onChange={({target}) => onChangeValue(target)}/>
 
 
@@ -47,7 +48,6 @@ function StudentForm({item, groups, onSave}) {
 }
 
 function mapStateToProps({students, groups}, {id}) {
-    console.log(groups);
     return {
 
         item:

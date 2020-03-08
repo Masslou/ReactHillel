@@ -8,12 +8,12 @@ export default function Students() {
     return (
         <div style={mainContentStyles}>
             <h3>Students</h3>
-            <Link to={`${url}/new`}>
-                <button style={addBtnStyle}>Add student</button>
-            </Link>
             <Switch>
                 <Route exact path={`${path}/`}>
                     <StudentsList/>
+                    <Link to={`${url}/new`}>
+                        <button style={addBtnStyle}>Add student</button>
+                    </Link>
                 </Route>
                 <Route path={`${path}/:id`} render={(route) => {
                     return <StudentForm id={route.match.params.id}/>
@@ -36,6 +36,6 @@ const addBtnStyle = {
     backgroundColor: '#00b712'
 };
 
-const mainContentStyles ={
-  marginLeft: '40px'
+const mainContentStyles = {
+    marginLeft: '40px'
 };
