@@ -14,6 +14,7 @@ function GroupsList({list, search, onSearch, onDeleteGroup, onDeleteStudent}) {
 
     return (
         <div>
+            <h6>search:</h6>
             <input
                 type="text"
                 value={search}
@@ -30,7 +31,7 @@ function GroupsList({list, search, onSearch, onDeleteGroup, onDeleteStudent}) {
 
 function mapStateToProps({groups}) {
     return {
-        list: groups.list.filter(item => item.title.includes(groups.search)),
+        list: groups.list.filter(item => item.title.toUpperCase().includes(groups.search.toUpperCase())),
         search: groups.search
     }
 }

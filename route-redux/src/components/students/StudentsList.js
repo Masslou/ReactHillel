@@ -12,6 +12,7 @@ function StudentsList({list, search, onSearch, onDeleteStudent}) {
 
     return (
         <div>
+            <h6>search:</h6>
             <input
                 type="text"
                 value={search}
@@ -28,7 +29,7 @@ function StudentsList({list, search, onSearch, onDeleteStudent}) {
 
 function mapStateToProps({students}) {
     return {
-        list: students.list.filter(item => item.title.includes(students.search)),
+        list: students.list.filter(item => item.title.toUpperCase().includes(students.search.toUpperCase())),
         search: students.search
     }
 }
