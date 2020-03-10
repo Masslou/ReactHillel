@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {saveGroup} from '../../store/actions/groupsActions'
-import {useHistory} from "react-router-dom";
+import {useHistory} from 'react-router-dom';
 
 function GroupForm({item, onSave}) {
     const [title, setTitle] = useState(item.title);
@@ -18,7 +18,7 @@ function GroupForm({item, onSave}) {
 
     return (
         <div>
-            <input type="text" value={title} onChange={({target}) => setTitle(target.value)}/>
+            <input type='text' value={title} onChange={({target}) => setTitle(target.value)}/>
             <button onClick={onSaveClick}>SAVE</button>
         </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import StudentItem from './StudentItem';
-import {deleteStudent, searchStudent} from "../../store/actions/studentsActions";
+import {deleteStudent, searchStudent} from '../../store/actions/studentsActions';
 
 function StudentsList({list, search, onSearch, onDeleteStudent}) {
 

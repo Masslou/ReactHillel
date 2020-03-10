@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {connect} from "react-redux";
-import {saveStudent} from "../../store/actions/studentsActions";
-import {useHistory} from "react-router-dom";
+import {connect} from 'react-redux';
+import {saveStudent} from '../../store/actions/studentsActions';
+import {useHistory} from 'react-router-dom';
 
 function StudentForm({item, groups, onSave}) {
 
