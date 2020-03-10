@@ -3,7 +3,10 @@ export const ACTION_STUDENT_SEARCH = 'ACTION_STUDENT_SEARCH';
 export const ACTION_STUDENT_DELETE = 'ACTION_STUDENT_DELETE';
 
 export function saveStudent(value) {
-    return {type: ACTION_STUDENT_SAVE, payload: value}
+    return {
+        type: ACTION_STUDENT_SAVE,
+        payload: value
+    }
 }
 
 export function searchStudent(query) {
@@ -12,6 +15,7 @@ export function searchStudent(query) {
         payload: query
     }
 }
+
 export function deleteStudent(id) {
     return {
         type: ACTION_STUDENT_DELETE,

@@ -2,13 +2,13 @@ import React from 'react';
 import {Link, useRouteMatch} from "react-router-dom";
 
 export default function StudentItem({item, onDelete}) {
-    const {url} = useRouteMatch();
+    const { url } = useRouteMatch();
 
     return (
         <>
             <Link to={`${url}/${item.id}`}>
                 <li style={studentItemStyles}><span>student name:</span> {item.title}
-                    <span>student's group</span>{item.groupID}</li>
+                    <span>student's group</span>{item.groupId}</li>
             </Link>
             <button style={deleteBtnStyles} onClick={(event) => onDelete(event, item)}>X</button>
         </>

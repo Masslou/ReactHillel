@@ -8,15 +8,15 @@ const initialState = {
 };
 
 function createStudent(state, payload) {
-
     return {
         ...state,
         list: [...state.list,
-            {id: Date.now(), groupId: payload.groupId, name: payload.title}]
+            {id: Date.now(), groupId: payload.groupId, title: payload.title}]
     }
 }
 
 function updateStudent(state, payload) {
+console.log(payload)
     return {
         ...state,
         list: state.list.map(item => {
@@ -38,7 +38,7 @@ export default function (state = initialState, {type, payload}) {
             };
 
         case ACTION_STUDENT_SAVE:
-            return payload.id ? createStudent(state, payload) : updateStudent(state, payload);
+            return payload.id ? updateStudent(state, payload) : createStudent(state, payload);
 
         case ACTION_STUDENT_SEARCH:
             return {

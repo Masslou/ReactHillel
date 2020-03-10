@@ -14,7 +14,6 @@ function StudentForm({item, groups, onSave}) {
     }
 
     function onChangeValue(target) {
-        console.log(target);
         setStudentItem({
             ...studentItem,
             ...{[target.name]: target.value}
@@ -49,12 +48,10 @@ function StudentForm({item, groups, onSave}) {
 
 function mapStateToProps({students, groups}, {id}) {
     return {
-
         item:
             id !== 'new' ? students.list.find(item => item.id == id)
                 : {id: '', title: ''},
         groups: groups.list,
-
     }
 }
 
