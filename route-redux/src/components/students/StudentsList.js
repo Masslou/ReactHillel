@@ -6,7 +6,7 @@ import {deleteStudent, searchStudent} from '../../store/actions/studentsActions'
 function StudentsList({list, search, onSearch, onDeleteStudent}) {
 
     function onDelete(event, item) {
-        event.stopPropagation();
+        event.preventDefault();
         onDeleteStudent(item.id);
     }
 
@@ -14,7 +14,7 @@ function StudentsList({list, search, onSearch, onDeleteStudent}) {
         <div>
             <h6>search:</h6>
             <input
-                type="text"
+                type='text'
                 value={search}
                 onChange={({target}) => onSearch(target.value)}
             />

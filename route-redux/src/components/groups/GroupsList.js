@@ -7,7 +7,7 @@ import {deleteStudent} from '../../store/actions/studentsActions';
 function GroupsList({list, search, onSearch, onDeleteGroup, onDeleteStudent}) {
 
     function onDelete(event, item) {
-        event.stopPropagation();
+        event.preventDefault();
         onDeleteGroup(item.id);
         onDeleteStudent(item.id);
     }
