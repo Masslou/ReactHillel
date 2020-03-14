@@ -29,12 +29,21 @@ function TableList({list, search, onSearch, onDeleteTable}) {
     );
 }
 
+
+const listSelector = (tables) => tables.list;
+const searchSelector = (tables) => tables.search;
+
+const getFilteredTables = createSelector(
+    [listSelector, searchSelector],
+    (list, search) => {
+        const searchRegExp = new RegExp(search, 'gi');
+        return search ? list.filter(item => item.name.match(searchRegExp)) : list
+    }
+);
+
 function mapStateToProps({tables}) {
-    const searchRegExp = new RegExp(tables.search, 'gi');
     return {
-        list: tables.search ?
-            tables.list.filter(item => item.name.match(searchRegExp))
-            : tables.list,
+        list: getFilteredTables(tables),
         search: tables.search
     }
 }

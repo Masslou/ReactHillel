@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {createSelector} from 'reselect'
 import {searchWaiter, deleteWaiter} from '../../store/actions/waitersAction';
 import WaiterItem from "./WaiterItem";
 
@@ -29,12 +30,20 @@ function TableList({list, search, onSearch, onDeleteTable}) {
     );
 }
 
+const listSelector = (waiters) => waiters.list;
+const searchSelector = (waiters) => waiters.search;
+
+const getFilteredWaiters = createSelector(
+    [listSelector, searchSelector],
+    (list, search) => {
+        const searchRegExp = new RegExp(search, 'gi');
+        return search ? list.filter(item => item.name.match(searchRegExp)) : list
+    }
+);
+
 function mapStateToProps({waiters}) {
-    const searchRegExp = new RegExp(waiters.search, 'gi');
     return {
-        list: waiters.search ?
-            waiters.list.filter(item => item.name.match(searchRegExp))
-            : waiters.list,
+        list: getFilteredWaiters(waiters),
         search: waiters.search
     }
 }
