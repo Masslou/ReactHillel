@@ -53,10 +53,6 @@ const addBtnStyle = {
     backgroundColor: '#00b712'
 };
 
-const mainContentStyles = {
-    marginLeft: '40px'
-};
-
 
 function mapStateToProps({loader}) {
     return {

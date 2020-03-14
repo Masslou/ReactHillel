@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {createSelector} from 'reselect';
 import {searchTable, deleteTable} from '../../store/actions/tablesActions';
-import TableItem from "./TableItem";
+import TableItem from './TableItem';
 
 function TableList({list, search, onSearch, onDeleteTable}) {
 
