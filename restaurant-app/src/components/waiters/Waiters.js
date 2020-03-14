@@ -10,7 +10,7 @@ function Waiters({isLoading, getWaiters}) {
 
     useEffect(() => {
         getWaiters()
-    }, []);
+    }, [getWaiters]);
 
 
     const {path, url} = useRouteMatch();

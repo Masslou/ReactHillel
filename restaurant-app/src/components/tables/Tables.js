@@ -10,7 +10,7 @@ function Tables({isLoading, getTables}) {
 
     useEffect(() => {
         getTables()
-    }, []);
+    }, [getTables]);
 
 
     const {path, url} = useRouteMatch();
