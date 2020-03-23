@@ -16,7 +16,6 @@ function createStudent(state, payload) {
 }
 
 function updateStudent(state, payload) {
-console.log(payload)
     return {
         ...state,
         list: state.list.map(item => {

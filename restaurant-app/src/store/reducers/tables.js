@@ -1,8 +1,8 @@
 import {
-    SEARCH_WAITER_ACTION,
-    SET_WAITERS_ACTION,
-    CREATE_WAITERS_ACTION,
-    UPDATE_WAITER_ACTION,
+    SEARCH_TABLE_ACTION,
+    SET_TABLES_ACTION,
+    CREATE_TABLES_ACTION,
+    UPDATE_TABLE_ACTION,
     DELETE_ITEM_ACTION,
 } from '../actions/tablesActions';
 
@@ -21,25 +21,25 @@ export default (state = initialState, {type, payload}) => {
             };
 
 
-        case SEARCH_WAITER_ACTION:
+        case SEARCH_TABLE_ACTION:
             return {
                 ...state,
                 search: payload
             };
 
-        case SET_WAITERS_ACTION:
+        case SET_TABLES_ACTION:
             return {
                 ...state,
                 list: payload
             };
 
-        case CREATE_WAITERS_ACTION:
+        case CREATE_TABLES_ACTION:
             return {
                 ...state,
                 list: [...state.list, payload]
             };
 
-        case UPDATE_WAITER_ACTION:
+        case UPDATE_TABLE_ACTION:
             return {
                 ...state,
                 list: state.list.map((item) => item.id == payload.id ? payload : item)

@@ -36,6 +36,7 @@ const searchSelector = (waiters) => waiters.search;
 const getFilteredWaiters = createSelector(
     [listSelector, searchSelector],
     (list, search) => {
+        console.log('search',search);
         const searchRegExp = new RegExp(search, 'gi');
         return search ? list.filter(item => item.name.match(searchRegExp)) : list
     }

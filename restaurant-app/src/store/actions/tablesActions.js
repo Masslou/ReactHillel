@@ -1,20 +1,20 @@
 import api from "../../services/api";
 import {setLoader} from "./loaderActions";
 
-export const SEARCH_WAITER_ACTION = 'SEARCH_WAITER_ACTION';
+export const SEARCH_TABLE_ACTION = 'SEARCH_TABLE_ACTION';
 
 export function searchTable(query) {
     return {
-        type: SEARCH_WAITER_ACTION,
+        type: SEARCH_TABLE_ACTION,
         payload: query
     };
 }
 
-export const SET_WAITERS_ACTION = 'SET_WAITERS_ACTION';
+export const SET_TABLES_ACTION = 'SET_TABLES_ACTION';
 
 export function setTables(data) {
     return {
-        type: SET_WAITERS_ACTION,
+        type: SET_TABLES_ACTION,
         payload: data
     };
 }
@@ -44,20 +44,20 @@ export function saveTable(table) {
 }
 
 
-export const CREATE_WAITERS_ACTION = 'CREATE_WAITERS_ACTION';
+export const CREATE_TABLES_ACTION = 'CREATE_TABLES_ACTION';
 
 export function createTable(table) {
     return {
-        type: CREATE_WAITERS_ACTION,
+        type: CREATE_TABLES_ACTION,
         payload: table
     };
 }
 
-export const UPDATE_WAITER_ACTION = 'UPDATE_WAITER_ACTION';
+export const UPDATE_TABLE_ACTION = 'UPDATE_TABLE_ACTION';
 
 export function updateTable(table) {
     return {
-        type: UPDATE_WAITER_ACTION,
+        type: UPDATE_TABLE_ACTION,
         payload: table
     };
 }

@@ -15,7 +15,6 @@ function WaiterForm({item, onSave}) {
     }
 
     function onChange({target}) {
-        console.log(target);
         setWaiter({
             ...waiter,
             [target.name]: target.value
